@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Security-Policy"
+          content="script-src 'self' https://unpkg.com/vue@3/dist/vue.esm-browser.js 'unsafe-inline' 'unsafe-eval'">
+    <link rel="stylesheet" href="main.css">
+    <title>Mostly — Service</title>
+</head>
+<body>
+
+<div class="container">
+    <div class="bg-dark header">
+        <div class="header__time">
+            <div class="time__date">3 дня</div>
+            <div class="time__time">12:21:22</div>
+            <div class="time_description">Проведенное время в интернете</div>
+        </div>
+        <div class="header__best-category">
+            <h1 class="best-category__title">Статистика</h1>
+            <div class="best-category__text">
+                Вы уделяете много времени <span>Обучению</span><br>  продолжайте в том же духе :)
+            </div>
+        </div>
+        <div class="header__category-graph">
+            <div class="category-graph__category">
+                <div class="category-graph__graph graph-yellow"></div>
+                <div class="category-graph__name">Развлечения</div>
+            </div>
+            <div class="category-graph__category">
+                <div class="category-graph__graph graph-purple"></div>
+                <div class="category-graph__name">Обучение</div>
+            </div>
+            <div class="category-graph__category">
+                <div class="category-graph__graph graph-red"></div>
+                <div class="category-graph__name">Соц-сети</div>
+            </div>
+            <div class="category-graph__category">
+                <div class="category-graph__graph graph-green"></div>
+                <div class="category-graph__name">Рабочие</div>
+            </div>
+        </div>
+    </div>
+    <div class="selector">
+        <div class="select">Больше
+            <img src="arrow.svg" alt="arrow">
+        </div>
+        <div class="select">Категория
+            <img src="arrow.svg" alt="arrow">
+        </div>
+        <div class="select">За сегодня
+            <img src="arrow.svg" alt="arrow">
+        </div>
+    </div>
+    <div class="bg-dark history">
+    </div>
+</div>
+
+<script type="module" src="options.js"></script>
+</body>
+</html>

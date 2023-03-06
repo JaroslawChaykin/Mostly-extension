@@ -1,0 +1,191 @@
+:root {
+    --color-white: #fff;
+    --color-dark: #242424;
+    --color-blue: #5B95BC;
+    --color-purple: #4C2A85;
+    --color-yellow: #FFEE88;
+    --color-red: #D64045;
+    --color-green: #60A561;
+    --color-grey: #BEBEBE;
+}
+
+@font-face {
+    font-family: "Gilroy-Bold";
+    font-style: normal;
+    font-weight: 700;
+    src: local("Gilroy-Bold"),
+    url("../assets/fonts/Gilroy-Bold.woff2") format("woff2");
+}
+
+@font-face {
+    font-family: "Gilroy-Regular";
+    font-style: normal;
+    font-weight: 400;
+    src: local("Gilroy-Regular"),
+    url("../assets/fonts/Gilroy-Regular.woff2") format("woff2");
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Gilroy-Regular', sans-serif;
+}
+
+.container {
+    width: 100%;
+    max-width: 1340px;
+    margin: 0 auto;
+}
+
+.bg-dark {
+    background: var(--color-dark);
+    box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.25);
+}
+
+.header {
+    display: flex;
+    padding: 25px;
+    color: var(--color-white);
+    border-radius: 0 0 10px 10px;
+}
+
+.time__date {
+    font-size: 52px;
+    font-weight: 900;
+}
+
+.time__time {
+    font-size: 72px;
+    font-weight: 400;
+}
+
+.time_description {
+    font-size: 18px;
+    color: var(--color-grey);
+    margin-top: 30px;
+}
+
+.header__best-category {
+    margin-left: 55px;
+}
+
+.best-category__title {
+    font-size: 52px;
+    font-weight: 900;
+}
+
+.best-category__text {
+    font-size: 18px;
+    color: var(--color-white);
+    margin-top: 3px;
+    line-height: 28px;
+}
+
+.best-category__text span {
+    padding: 0 11px;
+    background: var(--color-purple);
+    border-radius: 5px;
+}
+
+.header__category-graph {
+    display: flex;
+    align-items: flex-end;
+    gap: 25px;
+}
+
+.category-graph__category {
+    display: flex;
+    align-items: flex-end;
+}
+
+.category-graph__graph {
+    width: 20px;
+    height: 20px;
+    border-radius: 5px;
+    background: white;
+    margin-right: 12px;
+}
+
+.category-graph__name {
+    font-size: 18px;
+    color: var(--color-white);
+}
+
+.graph-yellow {
+    height: 52px;
+    background: var(--color-yellow);
+}
+
+.graph-red {
+    height: 72px;
+    background: var(--color-red);
+}
+
+.graph-green {
+    height: 30px;
+    background: var(--color-green);
+}
+
+.graph-purple {
+    height: 80px;
+    background: var(--color-purple);
+}
+
+.selector {
+    height: 95px;
+    display: flex;
+    align-items: flex-end;
+    gap: 30px;
+}
+
+.select {
+    font-size: 18px;
+}
+
+.history {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 30px 25px;
+    min-height: 50vh;
+    border-radius: 10px 10px 0 0;
+    margin-top: 20px;
+}
+
+.history__website {
+    display: flex;
+    align-items: center;
+    padding: 5px 11px;
+    background: linear-gradient(270deg, rgba(91, 149, 188, 0.15) 0.35%, rgba(91, 188, 157, 0) 98.55%);
+    position: relative;
+}
+
+.website__progress {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 30%;
+    height: 100%;
+    background: var(--color-blue);
+    border-radius: 4px;
+    z-index: 0;
+}
+
+.website__color {
+    width: 15px;
+    height: 15px;
+    border-radius: 2px;
+    z-index: 1;
+    margin-right: 12px;
+}
+
+.category-entertainments {
+    background: var(--color-yellow);
+}
+
+.website__text {
+    color: var(--color-white);
+    font-size: 18px;
+    z-index: 1;
+}

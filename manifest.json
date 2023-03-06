@@ -1,0 +1,28 @@
+{
+  "manifest_version": 3,
+  "name": "Extension Mostly",
+  "description": "Extension",
+  "version": "0.0.1",
+  "author": "Me",
+  "options_ui": {
+    "page": "OptionsPage/options.html",
+    "open_in_tab": true
+  },
+  "minimum_chrome_version": "46",
+  "action": {
+    "default_popup": "index.html"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "<all_urls>"
+      ],
+      "js": ["CurrentPage/PageScript.js"]
+    }
+  ],
+  "background": {
+    "service_worker": "Background/background.js",
+    "type": "module"
+  },
+  "permissions": ["activeTab", "storage", "tabs"]
+}
