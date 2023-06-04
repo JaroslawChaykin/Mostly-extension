@@ -71,7 +71,7 @@ body {
 
 .widgets {
     display: grid;
-    grid-template-columns: repeat(10, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     width: 100%;
     overflow-x: scroll;
     gap: 20px;
@@ -134,6 +134,17 @@ body {
 .time {
     padding: 25px;
     font-size: 64px;
+}
+
+.header__settings {
+    display: flex;
+    gap: 16px;
+}
+
+.header__settings button {
+    background: none;
+    border: none;
+    cursor: pointer;
 }
 
 .loading {
@@ -204,4 +215,165 @@ body {
 .list-item__red {
     background: #FCBCC3;
     color: #C7293C;
+}
+
+.w-timer {
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.header-timer {
+    display: flex;
+    justify-content: space-between;
+}
+
+.header-timer__title {
+    font-size: 20px;
+}
+
+.counter-timer {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    color: #242424;
+    padding-left: 17px;
+    padding-right: 17px;
+}
+
+.counter-timer_box {
+    width: 100%;
+    padding: 14px;
+    font-size: 24px;
+    background: #ffffff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.35);
+    border-radius: 4px;
+    border: none;
+}
+
+.checkbox-timer {
+    display: flex;
+    position: relative;
+    align-items: flex-start;
+    font-size: 12px;
+}
+
+.checkbox-timer input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
+
+.checkbox-timer input:checked ~ .checkmark .checkmark-checked {
+    background-color: #2C4251;
+    width: 14px;
+    height: 14px;
+    border-radius: 2px;
+}
+
+.checkbox-timer .checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 20px;
+    width: 20px;
+    border-radius: 5px;
+    border: 2px solid #2C4251;
+    background-color: #eee;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.checkbox-timer .text {
+    display: block;
+    margin-left: 30px;
+}
+
+.w-graphs {
+    padding: 20px 25px;
+}
+
+.header-graphs {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+
+.header-graphs__title {
+    font-size: 20px;
+}
+
+.graphs-week {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    height: calc(100% - 20px);
+}
+
+.graphs-day__name {
+    z-index: 2;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    width: 23px;
+    background: #2C4251;
+    border-radius: 4px;
+}
+
+.graphs-day__time {
+    display: none;
+}
+
+.graphs-day {
+    position: relative;
+    display: flex;
+    align-items: flex-end;
+    height: calc(100% - 20px);
+    padding-top: 20px;
+}
+
+.graphs-day::after {
+    content: '';
+    z-index: 1;
+    left: 11px;
+    position: absolute;
+    width: 1px;
+    height: 100%;
+    background: #4480A9;
+}
+
+.graphs-day::before {
+    content: '';
+    z-index: 1;
+    position: absolute;
+    right: -24px;
+    bottom: 10px;
+    height: 1px;
+    width: 30px;
+    background: #4480A9;
+}
+
+.graphs-day:last-child::before {
+    width: 0;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+input[type=number] {
+    -moz-appearance: textfield;
+}
+
+#category {
+    background: none;
+    border: none;
+    outline: none;
+    color: #4480A9;
 }

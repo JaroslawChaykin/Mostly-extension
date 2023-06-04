@@ -1,4 +1,13 @@
-import { setCurrentTab, setCurrentTabActiveTab, setSites } from '../Store/store.js';
+import {
+    setCurrentTab,
+    setCurrentTabActiveTab,
+    setSites,
+    blockSite,
+    unBlockSite,
+    setTimer,
+    decreaseTimer,
+    changeCategory
+} from '../Store/store.js';
 
 export const storageReducer = ({action, payload}) => {
     if (action === 'SET_SITES') {
@@ -11,6 +20,22 @@ export const storageReducer = ({action, payload}) => {
             break
         case 'SET_ACTIVE_TAB':
             setCurrentTabActiveTab(payload)
+            break
+        case 'BLOCK_SITE':
+            blockSite(payload)
+            break
+        case 'UNBLOCK_SITE':
+            unBlockSite(payload)
+            break
+        case 'SET_TIMER':
+            setTimer(payload)
+            break
+        case 'DECREASE_TIMER':
+            decreaseTimer()
+            break
+        case 'CHANGE_CATEGORY':
+            console.log(payload, 'reducer')
+            changeCategory(payload)
             break
     }
 };

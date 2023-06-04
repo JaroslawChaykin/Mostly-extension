@@ -29,8 +29,6 @@ export const reduceAllSitesTime = (sites) => {
 export const calculateDateFromAllTime = (UNIX_timestamp) => {
     const date = new Date(UNIX_timestamp);
 
-    console.log(date.getUTCMinutes());
-
     return {
         days: date.getUTCDate() - 1,
         months: date.getUTCMonth(),

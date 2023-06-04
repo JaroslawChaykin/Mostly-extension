@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <title>Title</title>
     <link rel="stylesheet" href="Popup/main.css">
+    <script src="utils/moment.js"></script>
 </head>
 <body>
 <div class="main">
@@ -13,13 +14,30 @@
         </div>
         <div class="website">
             <div class="website__name"></div>
-            <div class="website__category">Развлекательный</div>
+            <div class="website__category">
+                <select name="category" id="category">
+                    <option value="0" selected disabled>Другое</option>
+                    <option value="1">Развлечение</option>
+                    <option value="2">Обучение</option>
+                    <option value="3">Соц-сети</option>
+                    <option value="4">Рабочие</option>
+                </select>
+            </div>
         </div>
         <div class="header__settings">
-            <img src="Popup/images/3dots.svg" alt="settings">
+            <button class="btn-history" title="Посмотреть историю">
+                <img src="Popup/images/codicon_history.svg" alt="settings" width="24">
+            </button>
+            <button class="btn-delete" title="Очистить всю историю">
+                <img src="Popup/images/ic_baseline-delete.svg" alt="settings" width="24">
+            </button>
+            <button class="btn-block" title="Заблокировать сайт">
+                <img src="Popup/images/block.svg" alt="settings" width="24">
+            </button>
         </div>
     </div>
     <div class="widgets">
+        <!--TIME-->
         <div class="widget-container w-time">
             <div class="tabs">
                 <button class="btn-tab btn-tab__active session">Сессия</button>
@@ -29,23 +47,67 @@
                 12:32:22
             </div>
         </div>
-        <div class="widget-container "></div>
-        <div class="widget-container "></div>
+        <!--TIMER-->
+        <div class="widget-container w-timer">
+            <div class="header-timer">
+                <div class="header-timer__title">Таймер</div>
+                <button class="btn-tab btn-tab__active header-timer__button">Старт</button>
+            </div>
+            <div class="counter-timer">
+                <input type="number" class="counter-timer_box counter-timer__hours" placeholder="00" />
+                <input type="number" class="counter-timer_box counter-timer__minutes" placeholder="00" />
+                <input type="number" class="counter-timer_box counter-timer__seconds" placeholder="00" />
+            </div>
+            <div class="checkbox-timer">
+                <label class="container">
+                    <input type="checkbox" class="counter-timer__checkbox">
+                    <span class="checkmark">
+                        <span class="checkmark-checked"></span>
+                    </span>
+                    <span class="text">
+                        Запретить доступ к контенту по истечению таймера
+                    </span>
+                </label>
+            </div>
+        </div>
+        <!--GRAPHS-->
+        <div class="widget-container w-graphs">
+            <div class="header-graphs">
+                <div class="header-graphs__title">График</div>
+                <div class="header-graphs__consecutive-days">Дней подряд: <span>0</span></div>
+            </div>
+            <div class="graphs-week">
+                <div class="graphs-day monday">
+                    <div class="graphs-day__name">ПН</div>
+                    <div class="graphs-day__time"></div>
+                </div>
+                <div class="graphs-day tuesday">
+                    <div class="graphs-day__name">ВТ</div>
+                    <div class="graphs-day__time"></div>
+                </div>
+                <div class="graphs-day wednesday">
+                    <div class="graphs-day__name">СР</div>
+                    <div class="graphs-day__time"></div>
+                </div>
+                <div class="graphs-day thursday">
+                    <div class="graphs-day__name">ЧТ</div>
+                    <div class="graphs-day__time"></div>
+                </div>
+                <div class="graphs-day friday">
+                    <div class="graphs-day__name">ПТ</div>
+                    <div class="graphs-day__time"></div>
+                </div>
+                <div class="graphs-day saturday">
+                    <div class="graphs-day__name">СБ</div>
+                    <div class="graphs-day__time"></div>
+                </div>
+                <div class="graphs-day sunday">
+                    <div class="graphs-day__name">ВС</div>
+                    <div class="graphs-day__time"></div>
+                </div>
+            </div>
+        </div>
     </div>
-<!--    <div class="settings">  -->
-<!--        <div class="settings__header">-->
-<!--            <img src="Popup/images/3dotsBlue.svg" alt="dots">-->
-<!--        </div>-->
-<!--        <div class="settings__list">-->
-<!--            <div class="good-settings">-->
-<!--                <div class="settings__list-item">Посмотреть всю статистику</div>-->
-<!--                <div class="settings__list-item">Заблокировать доступ к сайту</div>-->
-<!--            </div>-->
-<!--            <div class="bad-settings">-->
-<!--                <div class="settings__list-item list-item__red">Удалить историю времени</div>-->
-<!--            </div>-->
-<!--        </div>-->
-<!--    </div>-->
 </div>
 <script type="module" src="Popup/main.js"></script>
 </body>

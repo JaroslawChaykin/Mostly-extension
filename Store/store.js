@@ -4,6 +4,11 @@ let state = {
     currentTab: '',
     sites: [],
     blackList: [],
+    timer: {
+        siteName: '',
+        time: 0,
+        needBlock: false,
+    }
 };
 
 let proxedState = new Proxy(state, {
@@ -22,8 +27,8 @@ let proxedState = new Proxy(state, {
             get: async function (target, prop) {
                 return Reflect.get(target, prop);
             },
-            set: function (target, prop, value) {
-                setStoreSync(target);
+            set: async function (target, prop, value) {
+                await setStoreSync(target);
                 return Reflect.set(target, prop, value);
             }
         });
@@ -36,6 +41,10 @@ export const getCurrentTab = async () => {
     return mostlyState.sites.filter((site) => {
         return site.name === mostlyState.currentTab;
     })[0];
+};
+
+export const getStore = async () => {
+    return await getStoreSync();
 };
 
 export const setCurrentTabActiveTab = async (activeTab) => {
@@ -90,3 +99,40 @@ export const setSites = async ({tab, date}) => {
     });
 
 };
+
+export const blockSite = async (payload) => {
+    const proxyBlackList = await proxedState.blackList.then(data => data);
+
+    if (!proxyBlackList.includes(payload.name)) {
+        proxyBlackList.push(payload.name);
+    }
+}
+
+export const unBlockSite = async (payload) => {
+    let proxyBlackList = await proxedState.blackList.then(data => data);
+    let index = proxyBlackList.findIndex(el => el === payload.name)
+
+    proxyBlackList.splice(index, 1)
+
+}
+
+export const setTimer = async (payload) => {
+    proxedState.timer = payload;
+    console.log(payload)
+}
+
+export const decreaseTimer = async () => {
+    let timer = await proxedState.timer.then(data => data);
+    timer.time = timer.time - 1000
+}
+
+export const changeCategory = async (payload) => {
+    const proxySites = await proxedState.sites.then(data => data);
+
+    proxySites.map((item) => {
+        if (item.name === payload.siteName) {
+            console.log(payload)
+            item.category = payload.categoryCode
+        }
+    })
+}

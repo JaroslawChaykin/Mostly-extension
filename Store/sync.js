@@ -1,5 +1,5 @@
-export const setStoreSync = (state) => {
-    chrome.storage.local.set({'mostlyState': state})
+export const setStoreSync = async (state) => {
+    await chrome.storage.local.set({'mostlyState': state})
 }
 
 export const getStoreSync = () => {

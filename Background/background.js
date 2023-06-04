@@ -1,5 +1,6 @@
 import { storageReducer } from './storageReducer.js';
 import { getCurrentDate } from '../utils/utils.js';
+import { getStore } from "../Store/store.js";
 
 const skipSitesList = [
     'extensions',
@@ -7,6 +8,8 @@ const skipSitesList = [
     'bgchfnhipcjdnheapocmppbbopafcfae',
     ''
 ];
+
+let intervalTimer;
 
 const getActiveTab = () => {
     return new Promise((resolve) => {
@@ -38,5 +41,72 @@ setInterval(async () => {
     });
 }, 1000);
 
+chrome.runtime.onMessage.addListener(async (req, cb) => {
+    const activeTab = await getActiveTab();
+
+    if (req.name === 'blockSiteInStore') {
+        storageReducer({
+            action: 'BLOCK_SITE',
+            payload: {
+                name: getSiteName(activeTab.url),
+            }
+        });
+    } else if (req.name === 'unBlockSiteInStore') {
+        storageReducer({
+            action: 'UNBLOCK_SITE',
+            payload: {
+                name: getSiteName(activeTab.url),
+            }
+        });
+    } else if (req.name === 'setTimer') {
+        storageReducer({
+            action: 'SET_TIMER',
+            payload: req.data
+        });
+
+        startTimer()
+    } else if (req.name === 'changeCategory') {
+        storageReducer({
+            action: 'CHANGE_CATEGORY',
+            payload: req.data
+        });
+    }
+})
 
 
+const startTimer = () => {
+
+    if (intervalTimer) {
+        clearInterval(intervalTimer);
+    }
+
+    intervalTimer = setInterval(async () => {
+        const activeTab = await getActiveTab();
+        const { timer } = await getStore()
+
+        if (timer.time === 0) {
+            clearInterval(intervalTimer);
+
+            chrome.tabs.sendMessage(activeTab.id, {name: 'timerEnd'}, function(response) {
+
+            });
+
+            if (timer.needBlock) {
+                storageReducer({
+                    action: 'BLOCK_SITE',
+                    payload: {
+                        name: getSiteName(activeTab.url),
+                    }
+                });
+            }
+            return
+        }
+
+        if (timer.siteName === getSiteName(activeTab.url)) {
+            storageReducer({
+                action: 'DECREASE_TIMER',
+            });
+        }
+
+    }, 1000)
+}

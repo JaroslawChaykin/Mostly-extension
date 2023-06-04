@@ -82,9 +82,28 @@
     line-height: 28px;
 }
 
-.best-category__text span {
+.best-category__text span.yellow {
+    padding: 0 11px;
+    background: var(--color-yellow);
+    border-radius: 5px;
+    color: black;
+}
+
+.best-category__text span.purple {
     padding: 0 11px;
     background: var(--color-purple);
+    border-radius: 5px;
+}
+
+.best-category__text span.red {
+    padding: 0 11px;
+    background: var(--color-red);
+    border-radius: 5px;
+}
+
+.best-category__text span.green {
+    padding: 0 11px;
+    background: var(--color-green);
     border-radius: 5px;
 }
 
@@ -97,6 +116,7 @@
 .category-graph__category {
     display: flex;
     align-items: flex-end;
+    height: 100%;
 }
 
 .category-graph__graph {
@@ -113,22 +133,18 @@
 }
 
 .graph-yellow {
-    height: 52px;
     background: var(--color-yellow);
 }
 
 .graph-red {
-    height: 72px;
     background: var(--color-red);
 }
 
 .graph-green {
-    height: 30px;
     background: var(--color-green);
 }
 
 .graph-purple {
-    height: 80px;
     background: var(--color-purple);
 }
 
@@ -185,7 +201,54 @@
 }
 
 .website__text {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
     color: var(--color-white);
     font-size: 18px;
     z-index: 1;
+    text-decoration: none;
+}
+
+.category-1 {
+    background: var(--color-yellow);
+}
+
+.category-2 {
+    background: var(--color-purple);
+}
+
+.category-3 {
+    background: var(--color-red);
+}
+
+.category-4 {
+    background: var(--color-green);
+}
+
+.history_days {
+    display: none;
+    margin-top: 10px;
+    margin-bottom: 30px;
+    padding: 5px;
+    border: 1px solid var(--color-blue);
+    border-radius: 4px;
+}
+
+.d-block {
+    display: block;
+}
+
+.history_day {
+    display: flex;
+    color: white;
+    gap: 20px;
+}
+
+.history_day__time {
+    width: 100px;
+}
+
+.last-big {
+    font-size: 24px;
 }

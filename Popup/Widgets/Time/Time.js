@@ -1,9 +1,8 @@
 import { getCurrentDate, timeConverter } from '../../../utils/utils.js';
 import { storageReducer } from '../../../Background/storageReducer.js';
-import { getCurrentTab } from '../../../Store/store.js';
+import { getCurrentTab, getStore } from '../../../Store/store.js';
 
 const startInterval = (body) => {
-
     let lastActiveTab = body.querySelector('.session');
     const timeNode = body.querySelector('.time');
     const dateNow = getCurrentDate();
@@ -14,16 +13,14 @@ const startInterval = (body) => {
 
     setInterval(async () => {
         const data = await getCurrentTab();
-
+        const dataAll = await getStore();
+        console.log(data)
         const timeInThiDay = data.history[dateNow];
-        const activeTab = data.activeTab || 'сессия';
 
-        if (activeTab === 'сессия') {
-            console.log(2);
+        if (lastActiveTab.innerText === 'Сессия') {
             timeNode.innerHTML = timeConverter(timeInThiDay);
         } else {
-            console.log(1);
-            timeNode.innerHTML = data.time;
+            timeNode.innerHTML = timeConverter(data.time);
         }
     }, 1000);
 
