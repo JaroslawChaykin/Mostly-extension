@@ -34,7 +34,6 @@ export const storageReducer = ({action, payload}) => {
             decreaseTimer()
             break
         case 'CHANGE_CATEGORY':
-            console.log(payload, 'reducer')
             changeCategory(payload)
             break
     }

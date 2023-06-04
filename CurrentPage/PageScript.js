@@ -37,7 +37,6 @@ getStoreSync()
 window.onload = () => {
     chrome.runtime.onMessage.addListener(
         function(request, sender, sendResponse) {
-            console.log(request)
             if (request.name === "block") {
                 window.document.body.innerHTML = template('Содержимое страницы заблокировано', 'Разблокируйте содержимое в расширении');
             } else if (request.name === "unBlock") {
@@ -45,10 +44,9 @@ window.onload = () => {
             } else if (request.name === 'timerEnd') {
                 window.document.body.insertAdjacentHTML('afterbegin', templateTimer('Таймер завершил свою работу'))
                 let timerAlert = window.document.body.querySelector('.timer-alert')
-                console.log('timer end')
-                // setTimeout(() => {
-                //     timerAlert.remove()
-                // }, 1000)
+                setTimeout(() => {
+                    timerAlert.remove()
+                }, 1000)
             }
         }
     );

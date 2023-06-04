@@ -14,7 +14,6 @@ const startInterval = (body) => {
     setInterval(async () => {
         const data = await getCurrentTab();
         const dataAll = await getStore();
-        console.log(data)
         const timeInThiDay = data.history[dateNow];
 
         if (lastActiveTab.innerText === 'Сессия') {

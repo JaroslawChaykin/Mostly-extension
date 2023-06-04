@@ -6,7 +6,6 @@ const template = (data) => {
     let historyDays = []
 
     Object.keys(data.history).forEach((item, index) => {
-        console.log(index, Object.keys(data.history).length)
         historyDays.push(
             `<div class="history_day ${index === Object.keys(data.history).length - 1 ? 'last-big' : ''}">
                 <div class="history_day__time">${timeConverter(data.history[item])}</div>

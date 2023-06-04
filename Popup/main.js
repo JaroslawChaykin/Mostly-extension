@@ -35,16 +35,13 @@ const initial = async () => {
     })
 
     blockSite.onclick = async (e) => {
-        console.log(store.blackList)
         if (store.blackList.includes(currentTab.name)) {
             chrome.runtime.sendMessage({name: 'unBlockSiteInStore'}, async () => {
                 let message = {name: "unBlock"};
                 let queryOptions = { active: true };
                 let tab = await chrome.tabs.query(queryOptions);
 
-                chrome.tabs.sendMessage(tab[0].id, message, function(response) {
-                    console.log(tab[0].id);
-                });
+                chrome.tabs.sendMessage(tab[0].id, message, function(response) {});
             })
         } else {
             chrome.runtime.sendMessage({name: 'blockSiteInStore'}, async () => {
@@ -53,7 +50,6 @@ const initial = async () => {
                 let tab = await chrome.tabs.query(queryOptions);
 
                 chrome.tabs.sendMessage(tab[0].id, message, function(response) {
-                    console.log(tab[0].id);
                 });
             })
         }
