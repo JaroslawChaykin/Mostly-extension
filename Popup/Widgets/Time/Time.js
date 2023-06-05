@@ -16,6 +16,8 @@ const startInterval = (body) => {
         const dataAll = await getStore();
         const timeInThiDay = data.history[dateNow];
 
+        console.log(dataAll)
+
         if (lastActiveTab.innerText === 'Сессия') {
             timeNode.innerHTML = timeConverter(timeInThiDay);
         } else {

@@ -136,3 +136,9 @@ export const changeCategory = async (payload) => {
         }
     })
 }
+
+export const clearHistory = async () => {
+    const proxySites = await proxedState.sites.then(data => data);
+
+    proxySites.length = 0;
+}

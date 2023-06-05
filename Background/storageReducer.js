@@ -6,7 +6,7 @@ import {
     unBlockSite,
     setTimer,
     decreaseTimer,
-    changeCategory
+    changeCategory, clearHistory
 } from '../Store/store.js';
 
 export const storageReducer = ({action, payload}) => {
@@ -35,6 +35,9 @@ export const storageReducer = ({action, payload}) => {
             break
         case 'CHANGE_CATEGORY':
             changeCategory(payload)
+            break
+        case 'CLEAR_HISTORY':
+            clearHistory(payload)
             break
     }
 };

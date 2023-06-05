@@ -5,7 +5,7 @@ import { getStore } from "../Store/store.js";
 const skipSitesList = [
     'extensions',
     'newtab',
-    'bgchfnhipcjdnheapocmppbbopafcfae',
+    'boaijoghmncecjggkgaljipngpoclnab',
     ''
 ];
 
@@ -68,6 +68,11 @@ chrome.runtime.onMessage.addListener(async (req, cb) => {
     } else if (req.name === 'changeCategory') {
         storageReducer({
             action: 'CHANGE_CATEGORY',
+            payload: req.data
+        });
+    } else if (req.name === 'clearHistory') {
+        storageReducer({
+            action: 'CLEAR_HISTORY',
             payload: req.data
         });
     }

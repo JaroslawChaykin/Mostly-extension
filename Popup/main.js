@@ -57,6 +57,16 @@ const initial = async () => {
         window.close()
     }
 
+    deleteHistory.onclick = () => {
+        const access = prompt('Вы уверены что хотте удалить историю? Напишите «Удалить» для подтверждения');
+
+        if (access.toLowerCase() === 'удалить') {
+            chrome.runtime.sendMessage({name: 'clearHistory'}, async () => {
+                alert('История очищена')
+            })
+        }
+    }
+
     openHistory.onclick = () => {
         window.open('chrome-extension://boaijoghmncecjggkgaljipngpoclnab/OptionsPage/options.html', '_blank');
     }
